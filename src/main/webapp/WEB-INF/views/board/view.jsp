@@ -107,8 +107,10 @@
 	  <tr>
 	  	<td colspan="4">
 	  		[<a href="/Board/WriteForm?menu_id=${boardDTO.menu_id }">새글 쓰기</a>]&nbsp;&nbsp;
+	  	<c:if test="${login.userid == board.writer }">	
 	  		[<a href="/Board/UpdateForm?idx=${boardDTO.idx }&menu_id=${boardDTO.menu_id}">수정</a>]&nbsp;&nbsp;
 	  		[<a href="/Board/Delete?idx=${boardDTO.idx }&menu_id=${boardDTO.menu_id}">삭제</a>]&nbsp;&nbsp;
+	  	</c:if>	
 	  		[<a href="/Board/List?menu_id=${boardDTO.menu_id }">목록</a>]&nbsp;&nbsp;
 	  		[<a href="/">Home</a>]&nbsp;&nbsp;	  	
 	  	</td>

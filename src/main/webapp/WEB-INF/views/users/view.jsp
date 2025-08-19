@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <%@taglib  prefix="c"  uri="http://java.sun.com/jsp/jstl/core"     %>     
+  <%@taglib  prefix="c"  uri="http://java.sun.com/jsp/jstl/core"     %>   
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,11 +108,11 @@
 	  <tr>
 	  	<td colspan="4">
 	  		[<a href="/BoardPaging/WriteForm?menu_id=${board.menu_id }&nowpage=${nowpage}">새글 쓰기</a>]&nbsp;&nbsp;
-	  	<c:if test="${board.writer == login.userid }">	
+  		<c:if test="${board.writer == login.userid }">		
 	  		[<a href="/BoardPaging/UpdateForm?idx=${board.idx }&menu_id=${boardDTO.menu_id}&nowpage=${nowpage}">수정</a>]&nbsp;&nbsp;
 	  		[<a href="/BoardPaging/Delete?idx=${board.idx }&menu_id=${boardDTO.menu_id}&nowpage=${nowpage}">삭제</a>]&nbsp;&nbsp;
 	  	</c:if>	
-	  		[<a href="/BoardPaging/List?menu_id=${board.menu_id }&nowpage=${nowpage}">목록</a>]&nbsp;&nbsp;
+	  		[<a href="/BoardPaging/List?menu_id=${board.menu_id }&nowpage=${nowpage}">목록</a>]&nbsp;&nbsp;	
 	  		[<a href="/">Home</a>]&nbsp;&nbsp;	  	
 	  	</td>
 	  </tr>

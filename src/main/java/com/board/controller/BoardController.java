@@ -35,7 +35,7 @@ public class BoardController {
 		
 		ModelAndView  mv  = new ModelAndView();
 		mv.addObject("menuList",  menuList);		
-		//mv.addObject("menu_id",   menu_id );		
+		//mv.addObject("menu_id", menu_id );		
 		mv.addObject("menuDTO",   menuDTO );		
 		mv.addObject("boardList", boardList );
 		mv.setViewName( "board/list" );

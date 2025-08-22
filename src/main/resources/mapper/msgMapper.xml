@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.Msg.MsgMapper">  
+  <!-- 목록조회 -->
+  <select id="getMsgList"  
+          resultType = "com.board.Msg.MsgDTO" >
+  
+     SELECT       ID
+			    , TITLE
+				, CONTENT
+				, SENDER_ID
+                , RECEIVER_ID 
+                , CREATED_AT
+      FROM       MSG
+      
+       WHERE     RECEIVER_ID  = #{ receiver_id }         
+      
+      ORDER  BY  ID DESC
+  
+  </select>
+  
+  <!-- 글 내용 보기 -->
+  <!-- <select id = "getBoard" resultType = "com.board.domain.BoardDTO" >
+  	SELECT IDX, MENU_ID, TITLE, WRITER, CONTENT, TO_CHAR(REGDATE, 'yyyy-MM-DD') REGDATE, HIT
+  	FROM   BOARD
+  	WHERE  IDX = #{idx}
+  </select> -->
+  
+  <insert  id="insertMsg">
+  	
+  	INSERT INTO MSG (
+	    ID,
+	    TITLE,
+	    CONTENT,
+	    SENDER_ID,
+	    RECEIVER_ID	    
+	) VALUES ( 
+  		( SELECT NVL(MAX(ID),0)+1 FROM MSG ) ,
+        #{ title  },
+        #{ content    },
+        #{ sender_id  },
+        #{ receiver_id   } 
+    )  
+  </insert>
+   
+   <!-- 조회수 증가 (update) -->
+ <!--  <update id="incHit">
+  	UPDATE BOARD
+  	SET	   hit = hit+1
+  	WHERE  idx = #{idx}
+  </update>
+  
+  <delete id = "deleteBoard">
+  	DELETE FROM BOARD
+  	WHERE  IDX  = #{idx}
+  </delete>
+  
+  <update id = "updateBoard">
+  	UPDATE BOARD
+  	SET	   TITLE = #{title},
+  		   CONTENT = #{content}	
+  	WHERE  idx = #{idx}
+  </update> -->
+  
+</mapper>

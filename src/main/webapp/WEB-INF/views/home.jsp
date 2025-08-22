@@ -29,6 +29,8 @@
    <a href="/BoardPaging/WriteForm?nowpage=1&menu_id=MENU01">새 게시물 추가(페이징)</a><br />
    <hr>
    
+   <a href="/Msg/MsgForm">쪽지보내기</a>
+   
    <div>
    	${sessionScope.login.username } 님 환영합니다 <br>
    	당신의 가입일은 ${sessionScope.login.indate } 입니다. <br>
